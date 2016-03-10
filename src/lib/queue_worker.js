@@ -510,8 +510,9 @@ QueueWorker.prototype._tryToProcess = function(nextTaskRef, deferred) {
               var reject = self._reject(self.taskNumber);
               setImmediate(function() {
                 try {
-                  self.processingFunction.call(null, data, progress, resolve,
-                    reject);
+                  self.processingFunction.call(
+                    snapshot, data, progress, resolve, reject
+                  );
                 } catch (error) {
                   reject(error);
                 }

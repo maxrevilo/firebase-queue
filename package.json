@@ -1,6 +1,6 @@
 {
-  "name": "firebase-queue",
-  "version": "0.0.0",
+  "name": "max-firebase-queue",
+  "version": "1.2.2",
   "description": "A fault-tolerant, multi-worker, multi-stage job pipeline built on Firebase",
   "keywords": [
     "job",
@@ -12,7 +12,7 @@
     "pipeline"
   ],
   "license": "MIT",
-  "author": "Firebase <support@firebase.com>",
+  "author": "Firebase <support@firebase.com>, Oliver Pérez <oliver.a.perez.c@gmail.com>",
   "contributors": [
     {
       "name": "Chris Raynor",
@@ -25,10 +25,14 @@
     {
       "name": "Mike McDonald",
       "email": "mcdonald@firebase.com"
+    },
+    {
+      "name": "Oliver Pérez",
+      "email": "oliver.a.perez.c@gmail.com"
     }
   ],
-  "repository": "https://github.com/firebase/firebase-queue.git",
-  "homepage": "https://github.com/firebase/firebase-queue",
+  "repository": "https://github.com/maxrevilo/firebase-queue.git",
+  "homepage": "https://github.com/maxrevilo/firebase-queue",
   "main": "dist/queue.js",
   "files": [
     "dist/lib/**",
@@ -38,10 +42,10 @@
     "package.json"
   ],
   "peerDependencies": {
-    "firebase": "2.x"
+    "firebase": "~2.4.1"
   },
   "dependencies": {
-    "firebase": "2.x",
+    "firebase": "~2.4.1",
     "lodash": "~3.7.0",
     "rsvp": "3.x",
     "node-uuid": "1.4.x",
@@ -51,7 +55,7 @@
     "chai": "2.2.0",
     "chai-as-promised": "5.0.0",
     "coveralls": "^2.11.2",
-    "gulp": "3.8.11",
+    "gulp": "3.9.0",
     "gulp-exit": "0.0.2",
     "gulp-istanbul": "0.8.1",
     "gulp-jshint": "1.10.0",

@@ -1309,7 +1309,7 @@ describe('QueueWorker', function() {
       });
       qw.setTaskSpec(th.validBasicTaskSpec);
       tasksRef.push({ foo: 'bar' });
-    })
+    });
 
     it('should not sanitize data passed to the processing function when specified', function(done) {
       qw = new th.QueueWorker(tasksRef, '0', false, false, function(data, progress, resolve, reject) {
@@ -1322,7 +1322,23 @@ describe('QueueWorker', function() {
       });
       qw.setTaskSpec(th.validBasicTaskSpec);
       tasksRef.push({ foo: 'bar' });
-    })
+    });
+
+    it('should send the task\'s snapshot as the context the processing function', function(done) {
+      var taskRef;
+      qw = new th.QueueWorker(tasksRef, '0', true, false, function(data, progress, resolve, reject) {
+        try {
+          expect(this).to.exist;
+          expect(String(this.ref())).to.be.equal(String(taskRef));
+          expect(this.key()).to.be.equal(taskRef.key());
+          done();
+        } catch (error) {
+          done(error);
+        }
+      });
+      qw.setTaskSpec(th.validBasicTaskSpec);
+      taskRef = tasksRef.push({ foo: 'bar' });
+    });
   });
 
   describe('#_setUpTimeouts', function() {
